@@ -11,9 +11,9 @@ useEffect(()=>{
     getCategories().then(results=>setCategories(results))
 },[])
 
-    return <>
+    return <section className="display-grid grid-4-columns w-full">
     {categories.map((cat,i) => <CategoriesLists key={i} cat={cat} /> )}
-    </>
+    </section>
 }
 
 export default Categories
