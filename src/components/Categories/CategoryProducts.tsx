@@ -18,9 +18,9 @@ const CategoryProducts = () =>{
  
 
 
-    return <>
+    return <div className='display-grid grid-4-columns'>
    {categoryProduct.map((products:[],i) => <CategoryProductsList key={i} products={products} />)}
-    </>
+    </div>
 }
 
 export default CategoryProducts

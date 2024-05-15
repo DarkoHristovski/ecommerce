@@ -4,7 +4,6 @@ import './header.css'
 const Header = () => {
   return (
     <header>
-
       <div className="container">
         <div className="wrapper">
           <div className="display-flex space-between aNavLinkgn-items">
@@ -15,7 +14,7 @@ const Header = () => {
                   <NavLink to="/" className={({isActive, isPending})=> isPending ? 'pending' : isActive ? 'active' : ''}>Home</NavLink>
                 </li>
                 <li>
-                <NavLink to="/product" className={({isActive, isPending})=> isPending ? 'pending' : isActive ? 'active' : ''}>Products</NavLink>
+                <NavLink to="/products" className={({isActive, isPending})=> isPending ? 'pending' : isActive ? 'active' : ''}>Products</NavLink>
 
                 </li>
                 <li>

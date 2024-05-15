@@ -16,3 +16,17 @@ export const getCategoriesProducts = async (product:string) =>{
     return getCatProducts
 
 }
+
+export const getAllProducts = async () =>{
+    const getAllProd = await fetch(url)
+    .then(res=> res.json())
+    return getAllProd
+
+}
+
+export const getProductDetails = async (id:string) =>{
+    const productDetails = await fetch(`${url}/${id}`)
+    .then(res=> res.json())
+
+    return productDetails
+}
