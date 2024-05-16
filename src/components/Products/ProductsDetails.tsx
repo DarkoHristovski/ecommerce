@@ -6,10 +6,16 @@ import './products.css'
 const ProductsDetails = () => {
   const [details, setDetails] = useState([]);
   const [clickedImg, setClickedImg] = useState([]);
+  const [activeIndex, setActiveIndex] = useState(null)
 
 
-  const selectedImg = (img:string) =>{
-    setClickedImg((state:[]) =>[img, ...state ])}
+
+  const selectedImg = (img:string, index:number) =>{
+    setClickedImg((state:[]) =>[img, ...state ]);
+    setActiveIndex(index)
+  
+  }
+
 
   const { id } = useParams();
 
@@ -17,7 +23,8 @@ const ProductsDetails = () => {
     services.getProductDetails(id).then((results) => setDetails(results));
   }, [id]);
 
-  console.log(clickedImg[0])
+
+ 
   return (
     <div className="display-flex" key={id}>
      <div className="images">
@@ -31,14 +38,15 @@ const ProductsDetails = () => {
       <div className="small-images">
       {details.images?.map((x,i)=> {
         return(
-           <div key={i} className="img-wrapper" >
-           <img  src={x} alt="" onClick={()=>selectedImg(x)} />
+           <div key={i}  className={`img-wrapper ${i === activeIndex ? 'active-image' : ''}`}  onClick={()=>selectedImg(x, i)} >
+           <img  src={x} alt="profuct-image" />
       </div>
         )
       })}
        </div>
      </div>
       <div className="text-section">
+        
         <h2>{details.title}</h2>
       </div>
     </div>
