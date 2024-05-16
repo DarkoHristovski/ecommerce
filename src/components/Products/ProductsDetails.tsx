@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import * as services from "../../services/fetchServices";
+import {realPrice} from "../../services/realPriceServices"
 import './products.css'
 
 const ProductsDetails = () => {
@@ -46,8 +47,12 @@ const ProductsDetails = () => {
        </div>
      </div>
       <div className="text-section">
-        
+      <p>{details.brand}</p>
         <h2>{details.title}</h2>
+        <p>{details.description}</p>
+        <p>${details.price}</p>
+        <p>{details.discountPercentage}%</p>
+        <p>${realPrice(details.price,details.discountPercentage).toFixed(2)} </p>
       </div>
     </div>
   );
